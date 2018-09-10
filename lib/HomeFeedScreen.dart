@@ -30,14 +30,15 @@ class _HomeFeedScreenState extends State<HomeFeedScreen> {
     if (await globalStore.userDatabaseReference == null) {
       await globalStore.logIn;
     }
-    snapSources = await globalStore.articleSourcesDatabaseReference.once();
-    var snap = await globalStore.articleDatabaseReference.once();
-    if (snapSources.value != null) {
-      newsSelection = '';
-      snapSources.value.forEach((key, source) {
-        newsSelection = newsSelection + source['id'] + ',';
-      });
-    }
+
+    // snapSources = await globalStore.articleSourcesDatabaseReference.once();
+    // // var snap = await globalStore.articleDatabaseReference.once();
+    // if (snapSources.value != null) {
+    //   newsSelection = '';
+    //   snapSources.value.forEach((key, source) {
+    //     newsSelection = newsSelection + source['id'] + ',';
+    //   });
+    // }
     var response = await http.get(
         Uri.encodeFull(
             'https://newsapi.org/v2/top-headlines?sources=' + newsSelection),
@@ -45,6 +46,7 @@ class _HomeFeedScreenState extends State<HomeFeedScreen> {
           "Accept": "application/json",
           "X-Api-Key": "ab31ce4a49814a27bbb16dd5c5c06608"
         });
+    print("responseresponseresponseresponse &{response}");
     var localData = JSON.decode(response.body);
     if (localData != null && localData["articles"] != null) {
       localData["articles"].sort((a, b) =>
@@ -55,7 +57,7 @@ class _HomeFeedScreenState extends State<HomeFeedScreen> {
     // if (mounted) {
     this.setState(() {
       data = localData;
-      snapshot = snap;
+      // snapshot = snap;
     });
     // }
     return "Success!";

@@ -10,13 +10,14 @@ dev_dependencies:
     sdk: flutter
   share: "^0.2.1"
   flutter_webview_plugin: "^0.0.9+1"
-  google_sign_in: "0.3.1"
+  google_sign_in: "^3.0.2"
   firebase_analytics: "0.0.4"
-  firebase_auth: "0.2.0"
+  firebase_auth: "^0.5.11" 
   firebase_database: "0.0.12"
   firebase_storage: "0.0.5"
   timeago: "^1.2.0"
   cupertino_icons: ^0.1.0
+  
 
 
 # For information on the generic Dart part of this file, see the
@@ -26,7 +27,7 @@ dev_dependencies:
 flutter:
 
   # The following line ensures that the Material Icons font is
-  # included with your application, so that you can use the icons in
+  # included with your applSication, so that you can use the icons in
   # the Icons class.
   uses-material-design: true
 
